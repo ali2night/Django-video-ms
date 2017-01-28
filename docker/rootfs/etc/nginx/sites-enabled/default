@@ -1,0 +1,25 @@
+upstream django{
+	server 127.0.0.1:8080;
+}
+server{
+
+    listen 80;
+    server_name vms.tnt.local;
+    charset     utf-8;
+   
+   # Django media
+   # location /media  {
+   #     alias /path/to/your/mysite/media;  # your Django project's media files - amend as required
+   # }
+
+    location /static {
+        alias /var/www/movies/static; # your Django project's static files - amend as required
+    }
+
+    # Finally, send all non-media requests to the Django server.
+    location / {
+        uwsgi_pass 127.0.0.1:8080;
+        include   /etc/nginx/uwsgi_params; # the uwsgi_params file you installed
+    }	
+
+}

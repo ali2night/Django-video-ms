@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+{% include 'movies/head.html' %}
+
+</head>
+<body>
+{% include 'movies/nav.html' %}
+<div class="page_title">
+  Comment's for {{video_name}}
+</div>
+<div class="container">
+{% for cm in comments %}
+
+  <div class="jumbotron">
+    <h2 data-toggle="tooltip" title="User name">
+    	{{cm.user_name}} says : 
+    </h2>
+    <h3 data-toggle="tooltip" title="{{cm.user_name}}'s comment subject">
+    	{{cm.user_subject}}
+    </h3>
+	<p class="comment_overflow" data-toggle="tooltip" title="{{cm.user_name}}'s comment">
+		{{cm.user_comment}}
+	</p>
+  </div>
+{% endfor %}
+</div>
+</body>

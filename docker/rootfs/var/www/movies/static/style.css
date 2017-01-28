@@ -1,0 +1,31 @@
+body {
+    overflow-x:hidden;
+}
+.page_title{
+  font-weight:bolder;
+  margin: 1em;
+  border-bottom-style: solid;
+  border-bottom-color: gray;
+  border-bottom-width: thin;
+}
+.video_img_list{
+  opacity: 0.9
+}
+.video_img_list:hover{
+  opacity: 1;
+}
+.page_center{
+  margin-left: 17%;
+  margin-right: 15%;
+}
+.commentview_form_center{
+  margin-top: 3em;
+  margin-left: 10%;
+}
+.comment_form_center{
+  margin-top: 3em;
+  margin-left: 5%;
+}
+.comment_overflow{
+  overflow: auto;
+}

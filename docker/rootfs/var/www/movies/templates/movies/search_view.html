@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+{% include 'movies/head.html' %}
+
+</head>
+<body>
+{% include 'movies/nav.html' %}
+<div class="page_title">
+  Results for your search
+</div>
+    {% load static %}
+    {% for mv in movie %}
+        <div role="row"></div>
+          <div class="col-md-4">
+            <a href="/movies/movies_list/movies_selected/{{ mv.id }}"class="thumbnail" title="{{mv.video_name}}"><img class="video_img_list" src="{% static mv.video_img.url %}"  title="{{mv.video_name}}"/></a>
+          </div>
+        </div>
+    {% endfor %}
+
+</body>
