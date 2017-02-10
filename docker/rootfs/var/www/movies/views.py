@@ -1,5 +1,5 @@
 from django.http import HttpResponse,HttpResponseRedirect
-from django.urls import reverse
+from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate,login,logout
 from .models import video,comment_for_movie
 from django.shortcuts import render,get_object_or_404
@@ -46,6 +46,7 @@ def logout_user(request):
     request.session.flush()
     return HttpResponseRedirect(reverse('movies:index'))
 def random_movie(request):
+    '''
     movie_selected =video.objects.get('?')
     Comment_Form=comment_form(request.POST)
     context = {'movie_selected':movie_selected,'comment_form':Comment_Form}
@@ -56,7 +57,6 @@ def random_movie(request):
     random = random.randint(1,mlen)
     url="/movies/movies_list/movies_selected/"+str(random)+"/"
     return HttpResponseRedirect(url)
-    '''
 def comment_view(request):
     name_of_movie=request.POST.get('movie_name')
     comments=comment_for_movie.objects.filter(movie_name=name_of_movie)
